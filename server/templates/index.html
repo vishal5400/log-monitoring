@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Files</title>
+</head>
+<body>
+    <h1>Log Files</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <ul>
+        {% for file in files %}
+        <li><a href="/logs/{{ file }}" target="_blank">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

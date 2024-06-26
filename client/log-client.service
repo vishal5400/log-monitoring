@@ -1,0 +1,10 @@
+[Unit]
+Description=My Custom Service
+
+[Service]
+ExecStart=/usr/lib/log-client/log-client.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

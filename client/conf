@@ -1,0 +1,9 @@
+# conf.sh
+# Configuration
+user=user
+server=127.0.0.1
+password=password
+logs_files="/var/log/nginx/access.log /var/log/syslog"
+compear_file="/var/log/nginx/access.log_* /var/log/syslog_*"
+name=server_name
+

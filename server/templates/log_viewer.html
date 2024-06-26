@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ filename }}</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Live Log Viewer: {{ filename }}</h1>
+    <div id="log-stream">
+        <!-- Live log updates will appear here -->
+    </div>
+
+    <script>
+        const eventSource = new EventSource(`/stream/{{ filename }}`);
+        const logStream = document.getElementById('log-stream');
+
+        eventSource.onmessage = function(event) {
+            const newLog = document.createElement('div');
+            newLog.textContent = event.data;
+            logStream.appendChild(newLog);
+        };
+
+        eventSource.onerror = function(event) {
+            console.error("EventSource failed:", event);
+            eventSource.close();
+        };
+    </script>
+</body>
+</html>
+
