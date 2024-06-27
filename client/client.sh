@@ -6,7 +6,7 @@ source /usr/lib/log-client/conf
 
 first_while_loop() {
 	while true; do
-		sshpass -p $password rsync -avh -e "ssh -o StrictHostKeyChecking=no" $logs_files $user@$server:~/$name
+		sshpass -p $password rsync -avh -e "ssh -o StrictHostKeyChecking=no" $logs_files $user@$server:~/server/$name
 		sleep 5  # Adjust the interval as needed
 	done
 }
@@ -19,8 +19,8 @@ secound_while_loop() {
 			cp $i "$i$timestamp"
 			file=$(basename $i)
 			echo $file
-			sshpass -p $password ssh -o StrictHostKeyChecking=no $user@$server mv ~/$name/"$file" ~/$name/"$file"_"$timestamp"
-			sshpass -p $password rsync -avh -e "ssh -o StrictHostKeyChecking=no" $compear_file $user@$server:~/$name
+			sshpass -p $password ssh -o StrictHostKeyChecking=no $user@$server mv ~/server/$name/"$file" ~/server/$name/"$file"_"$timestamp"
+			sshpass -p $password rsync -avh -e "ssh -o StrictHostKeyChecking=no" $compear_file $user@$server:~/server/$name
 		done
 
 	done
