@@ -10,7 +10,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
-log_directory = os.path.expanduser('~/server3') 
+log_directory = os.path.expanduser('~/') 
 
 users = {'admin': {'password': 'password'}} 
 
